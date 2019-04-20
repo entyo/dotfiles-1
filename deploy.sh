@@ -2,8 +2,7 @@
 set -eu
 
 if [ "$(uname)" = 'Darwin' ]; then
-  ./bin/mitamae local $@ ./lib/bootstrap.rb ;
-
+  ./bin/mitamae local ./lib/bootstrap.rb ;
 elif [ "$(lsb_release -is)" = 'Ubuntu' ]; then
-  sudo -E bin/mitamae local $@ ./lib/bootstrap.rb ;
+  sudo -E bin/mitamae local ./lib/bootstrap.rb ;
 fi
