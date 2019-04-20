@@ -36,7 +36,7 @@ elif [ "$(lsb_release -is)" = 'Ubuntu' ]; then
 fi
 
 if [ ! -d $HOME/dotfiles ]; then
-  git clone https://github.com/tkmru/dotfiles.git ~/dotfiles
+  git clone https://github.com/entyo/dotfiles-mitamae.git ~/dotfiles
 fi
 
 ~/dotfiles/bin/setup_mitamae.sh
