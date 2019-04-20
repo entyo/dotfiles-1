@@ -37,5 +37,3 @@ include_cookbook 'ghq'
 include_cookbook 'peco'
 include_cookbook 'fish'
 include_cookbook 'anyenv'
-
-include_role node[:platform]
