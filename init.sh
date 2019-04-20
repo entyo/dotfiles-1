@@ -14,7 +14,7 @@ is_setup() {
   done
 }
 
-
+# TODO: https://github.com/k0kubun/dotfiles のように、
 if [ "$(uname)" = 'Darwin' ]; then
   if is_setup 'Xcode Command Line Tools'; then
     xcode-select --install
@@ -28,6 +28,10 @@ if [ "$(uname)" = 'Darwin' ]; then
   if is_setup 'some tools by Homebrew and Homebrew cask'; then
     ~/dotfiles/brew.sh
     ~/dotfiles/cask.sh
+  fi
+elif [ "$(lsb_release -is)" = 'Ubuntu' ]; then
+  if is_setup 'packages via apt'; then
+    ~/dotfiles/apt.sh
   fi
 fi
 

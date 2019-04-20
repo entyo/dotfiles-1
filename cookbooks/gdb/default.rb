@@ -1,3 +1,0 @@
-package 'gdb'
-
-ln '.gdbinit'

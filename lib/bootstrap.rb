@@ -27,4 +27,10 @@ MItamae::RecipeContext.class_eval do
 end
 
 include_recipe 'recipe_helper'
+include_cookbook 'git'
+include_cookbook 'vim'
+include_cookbook 'tmux'
+include_cookbook 'hyper'
+include_cookbook 'fish'
+
 include_role node[:platform]
