@@ -34,6 +34,7 @@ brew install wget
 brew install xz
 brew install zlib
 brew install fish
+brew install anyenv
 
 # Remove outdated versions from the cellar.
 brew cleanup
