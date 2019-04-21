@@ -1,5 +1,5 @@
 link File.join(ENV['HOME'], ".config", "fish", "config.fish") do
-  to File.expand_path("../../config/config.fish", __FILE__)
+    to File.expand_path("../../../config/config.fish", __FILE__)
 end
 
 # https://github.com/k0kubun/dotfiles/blob/master/cookbooks/zsh/default.rb#L1

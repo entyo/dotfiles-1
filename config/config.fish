@@ -10,7 +10,7 @@ if status --is-interactive
 end
 
 set GOPATH $HOME/go
-set PATH /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $PATH
+set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $PATH
 
 function peco_select_history
     if set -q $argv
