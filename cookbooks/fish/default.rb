@@ -1,3 +1,10 @@
+execute "curl -L https://get.oh-my.fish | fish" do
+  not_if "test -e #{ENV['HOME']}/.local/share/omf"
+end
+
+execute "ghq get git@github.com:powerline/fonts.git; $HOME/.ghq/github.com/powerline/fonts/install.sh"
+execute "omf install agnoster | fish && omf theme agnoster | fish"
+
 link File.join(ENV['HOME'], ".config", "fish", "config.fish") do
     to File.expand_path("../../../config/config.fish", __FILE__)
 end

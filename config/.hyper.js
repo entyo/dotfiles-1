@@ -6,13 +6,13 @@ module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: "stable",
+    updateChannel: "canaly",
 
     // default font size in pixels for all tabs
     fontSize: 18,
 
     // font family with optional fallbacks
-    fontFamily: "Ricty Diminished",
+    fontFamily: "Source Code Pro for Powerline",
 
     // default font weight: 'normal' or 'bold'
     fontWeight: "normal",
