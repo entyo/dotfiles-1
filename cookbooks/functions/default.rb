@@ -1,6 +1,11 @@
 define :github_binary, version: nil, repository: nil, archive: nil, binary_path: nil do
   cmd = params[:name]
   bin_path = "#{ENV['HOME']}/bin/#{cmd}"
+
+  execute "mkdir -p #{bin_path}" do
+    not_if "test -e #{bin_path}"
+  end
+
   archive = params[:archive]
   url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{archive}"
 
