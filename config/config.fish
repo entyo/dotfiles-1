@@ -1,12 +1,13 @@
 set fish_theme agnoster
 set fish_plugins theme peco git tmux
+
 # Path to Oh My Fish install.
 set -gx OMF_PATH $HOME/.local/share/omf
 
 # tmux
 if status --is-interactive
-    and not set -q TMUX
-    exec tmux
+   and not set -q TMUX
+   exec tmux
 end
 
 set GOPATH $HOME/go
