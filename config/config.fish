@@ -2,7 +2,8 @@ set fish_theme agnoster
 set fish_plugins theme peco git tmux
 
 # Path to Oh My Fish install.
-set -gx OMF_PATH $HOME/.local/share/omf
+set -x OMF_PATH $HOME/.local/share/omf
+source $OMF_PATH/init.fish
 
 # tmux
 if status --is-interactive
@@ -10,8 +11,15 @@ if status --is-interactive
    exec tmux
 end
 
+# Java
+set -x JAVA_HOME (/usr/libexec/java_home -v "1.8")
+
+# Android
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+
+
 set GOPATH $HOME/go
-set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $PATH
+set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $JAVA_HOME/bin $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools $PATH
 
 function peco_select_history
     if set -q $argv
@@ -37,7 +45,6 @@ function peco_select_repository
     commandline -f repaint
 end
 
-set -gx SHELL /usr/bin/fish
 set fish_greeting
 
 status --is-interactive
