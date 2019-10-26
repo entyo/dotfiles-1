@@ -6,9 +6,9 @@ set -x OMF_PATH $HOME/.local/share/omf
 source $OMF_PATH/init.fish
 
 # tmux
-if status --is-interactive
-   and not set -q TMUX
-   exec tmux
+status --is-interactive
+and not set -q TMUX
+and exec tmux
 end
 
 # Java
