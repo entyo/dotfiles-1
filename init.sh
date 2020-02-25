@@ -31,7 +31,7 @@ if [ "$(uname)" = 'Darwin' ]; then
   fi
 elif [ "$(lsb_release -is)" = 'Ubuntu' ]; then
   if is_setup 'packages via apt'; then
-    ~/dotfiles/apt.sh
+    ~/dotfiles/apt.sh; sudo snap install alacritty --classic
   fi
 fi
 
