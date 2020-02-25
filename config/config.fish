@@ -9,17 +9,15 @@ source $OMF_PATH/init.fish
 status --is-interactive
 and not set -q TMUX
 and exec tmux
-end
 
 # Java
-set -x JAVA_HOME (/usr/libexec/java_home -v "1.8")
+# set -x JAVA_HOME (/usr/libexec/java_home -v "1.8")
 
 # Android
-set -x ANDROID_HOME $HOME/Library/Android/sdk
-
+set -x ANDROID_HOME $HOME/Android/Sdk
 
 set GOPATH $HOME/go
-set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $JAVA_HOME/bin $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools $PATH
+set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $JAVA_HOME/bin $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools /usr/local/texlive/2019/bin/x86_64-linux $PATH
 
 function peco_select_history
     if set -q $argv
@@ -49,3 +47,7 @@ set fish_greeting
 
 status --is-interactive
 and source (anyenv init -|psub)
+
+set DOTNET_USE_POLLING_FILE_WATCHER true
+
+eval (direnv hook fish)
