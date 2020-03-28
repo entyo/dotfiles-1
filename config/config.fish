@@ -2,7 +2,8 @@ set fish_theme agnoster
 set fish_plugins theme fzf git tmux
 
 # Path to Oh My Fish install.
-set -gx OMF_PATH $HOME/.local/share/omf
+set -x OMF_PATH $HOME/.local/share/omf
+source $OMF_PATH/init.fish
 
 # tmux
 if status --is-interactive
@@ -41,8 +42,11 @@ function fzf_select_repository
     commandline -f repaint
 end
 
-set -gx SHELL /usr/bin/fish
 set fish_greeting
 
 status --is-interactive
 and source (anyenv init -|psub)
+
+set DOTNET_USE_POLLING_FILE_WATCHER true
+
+eval (direnv hook fish)

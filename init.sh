@@ -33,6 +33,7 @@ elif [ "$(lsb_release -is)" = 'Ubuntu' ]; then
   if is_setup 'packages via apt'; then
     ~/dotfiles/apt.sh
     ~/dotfiles/fzf.sh
+    sudo snap install alacritty --classic
   fi
 fi
 
