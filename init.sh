@@ -32,6 +32,7 @@ if [ "$(uname)" = 'Darwin' ]; then
 elif [ "$(lsb_release -is)" = 'Ubuntu' ]; then
   if is_setup 'packages via apt'; then
     ~/dotfiles/apt.sh
+    ~/dotfiles/fzf.sh
   fi
 fi
 

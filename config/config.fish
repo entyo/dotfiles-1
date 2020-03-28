@@ -1,24 +1,28 @@
 set fish_theme agnoster
-set fish_plugins theme peco git tmux
+set fish_plugins theme fzf git tmux
 
 # Path to Oh My Fish install.
 set -gx OMF_PATH $HOME/.local/share/omf
 
 # tmux
 if status --is-interactive
-   and not set -q TMUX
-   exec tmux
+    and not set -q TMUX
+    exec tmux
 end
 
 set GOPATH $HOME/go
-set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $PATH
+set ANDROID_HOME $HOME/Android/Sdk
+set ANDROID_SDK_ROOT $ANDROID_HOME
+set DOTNET_SKIP_FIRST_TIME_EXPERIENCE true
+set KUBECONFIG $HOME/.kube/config
+set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools $HOME/.ghq/chromium.googlesource.com/chromium/tools/depot_tools $HOME/.cargo/env $PATH
 
-function peco_select_history
+function fzf_select_history
     if set -q $argv
-        history | peco | read -l line
+        history | fzf | read -l line
         and commandline $line
     else
-        history | peco --query $argv | read -l line
+        history | fzf --query $argv | read -l line
         and commandline $line
     end
 
@@ -26,12 +30,12 @@ function peco_select_history
 end
 
 function fish_user_key_bindings
-    bind \cr peco_select_history
-    bind \ce peco_select_repository
+    bind \cr fzf_select_history
+    bind \ce fzf_select_repository
 end
 
-function peco_select_repository
-    ghq list -p | peco --select-1 | read -l line
+function fzf_select_repository
+    ghq list -p | fzf --select-1 | read -l line
     and builtin cd $line
 
     commandline -f repaint
