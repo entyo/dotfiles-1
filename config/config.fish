@@ -17,6 +17,7 @@ set ANDROID_SDK_ROOT $ANDROID_HOME
 set DOTNET_SKIP_FIRST_TIME_EXPERIENCE true
 set KUBECONFIG $HOME/.kube/config
 set PATH $HOME/bin /usr/local/bin /usr/sbin $HOME/.anyenv/bin /home/e_ntyo/.local/bin $GOPATH/bin $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools $HOME/.ghq/chromium.googlesource.com/chromium/tools/depot_tools $HOME/.cargo/env $PATH
+set -gx FZF_DEFAULT_OPTS "--layout=reverse --inline-info --height 80% --border"
 
 function fzf_select_history
     if set -q $argv
